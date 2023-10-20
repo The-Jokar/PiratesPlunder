@@ -31,7 +31,6 @@ class Mode1Tests(TestCase):
             # This assertIn is written so that we allow copies with the same properties to be considered equal.
             self.assertIn((island.name, island.money, island.marines), [(i.name, i.money, i.marines) for i in islands])
             current_money += min(island.money * crew_sent / island.marines, island.money)
-            print(current_money)
             current_crew -= crew_sent
             self.assertGreaterEqual(current_crew, 0)
         self.assertFalse(current_money < optimal, "Your island selection is suboptimal!")
