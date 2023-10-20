@@ -14,20 +14,34 @@ class Mode2Navigator:
         :complexity: best and worst case is O(1)
         """
         self.n_pirates = n_pirates
+<<<<<<< HEAD
         self.islands = []
         self.islands_dict = {}
         self.island_names = []
+=======
+        self.pirates_priority = MaxHeap(1)
+>>>>>>> 6c01f9e3f670e823c1cf7a54f5dd27cc3f7b5b8d
 
     def add_islands(self, islands: list[Island]):
         """
         Adds a given list of islands to the navigator using a for loop and append
         :complexity: best and worst case complexity is O(n) where n is the length of the input list
         """
+<<<<<<< HEAD
         #iterates through the islands and add them to a list as well adding their names to a seperate list
         for island in islands:
             self.islands.append(island)
             self.island_names.append(island.name)
             
+=======
+        if len(self.pirates_priority) == 0:
+            self.pirates_priority = MaxHeap.heapify(islands)
+        else:
+            for island in islands:
+                ratio = island.money / island.marines
+                self.pirates_priority.add(island)
+        print(len(self.pirates_priority))
+>>>>>>> 6c01f9e3f670e823c1cf7a54f5dd27cc3f7b5b8d
 
     def simulate_day(self, crew: int) -> list[tuple[Island|None, int]]:
         """
@@ -42,6 +56,7 @@ class Mode2Navigator:
         :complexity: The best and worst case complexity of this function is (i + p*log(i)) where i is the number of islands, and p is the number of pirates, it occurs in all cases, as when considering an arbitrarily
         input there is no way to exit the function early
         """
+<<<<<<< HEAD
         for island in self.islands:
             if island.marines > 0:
                 max_money = min((crew/island.marines) * island.money, island.money)
@@ -104,3 +119,9 @@ class Mode2Navigator:
             new_score = 2 * (remaining_crew) + max_money
             return (new_score, new_island)
 
+=======
+        raise NotImplementedError()
+
+m2 = Mode2Navigator(4)
+m2.add_islands([Island('a', 50, 3), Island('b', 70, 5), Island('c', 30, 1)])
+>>>>>>> 6c01f9e3f670e823c1cf7a54f5dd27cc3f7b5b8d
