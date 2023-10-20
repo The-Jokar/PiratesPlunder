@@ -16,7 +16,7 @@ if __name__ == "__main__":
             "Example: local_run_tests.py 3\n"
             "Runs the tests with @number('3.x')."
         ),
-        default="",
+        default="1",
         nargs="?",
     )
     p.add_argument(
